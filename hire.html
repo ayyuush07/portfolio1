@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hire | Ayush</title>
+    <link rel="stylesheet" href="hire.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <a href="index.html" class="logo"><i class="fas fa-code"></i> Ayush</a>
+      <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="service.html">Services</a>
+        <a href="skill.html">Skills</a>
+        <a href="ed.html">Education</a>
+        <a href="hire.html" class="active">Hire</a>
+      </nav>
+    </header>
+
+    <section class="hire-container">
+      <h2 class="heading">Should You <span>Hire Me?</span></h2>
+
+      <div class="bento-grid">
+        <div class="bento-item main-card">
+          <i class="fas fa-microchip"></i>
+          <h3>Current Status: Processing...</h3>
+          <p>
+            I'm currently a student. Hiring me is like buying a game in
+            <strong>Early Access</strong>: There might be some bugs, but the
+            updates are frequent and the passion is 100%.
+          </p>
+        </div>
+
+        <div class="bento-item accent-1">
+          <i class="fas fa-coffee"></i>
+          <h3>Pro: Low Cost</h3>
+          <p>I work for high-fives and the occasional "good job."</p>
+        </div>
+
+        <div class="bento-item accent-2">
+          <i class="fas fa-bomb"></i>
+          <h3>Con: High Risk</h3>
+          <p>
+            I might accidentally delete the production database. (Just
+            kidding... unless?)
+          </p>
+        </div>
+
+        <div class="bento-item wide-card">
+          <h3>Still Brave Enough?</h3>
+          <p>
+            If you want a junior dev who learns faster than a browser refreshes,
+            let's talk.
+          </p>
+          <div class="btn-group">
+            <button onclick="copyEmail()" class="btn" id="emailBtn">
+              Send an Offer
+            </button>
+            <a
+              href="https://www.instagram.com/beck_zephyr/"
+              target="_blank"
+              class="btn secondary"
+              >Adopt a Dev</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      function copyEmail() {
+        const email = "ayushkhanal265@gmail.com";
+        navigator.clipboard
+          .writeText(email)
+          .then(() => {
+            const btn = document.getElementById("emailBtn");
+            const originalText = btn.innerText;
+            btn.innerText = "Email Copied! 📋";
+            setTimeout(() => {
+              btn.innerText = originalText;
+            }, 2000);
+          })
+          .catch(() => {
+            alert(
+              "Email: ayushkhanal265@gmail.com\n\nCopy it to send me an offer!",
+            );
+          });
+      }
+    </script>
+  </body>
+</html>
