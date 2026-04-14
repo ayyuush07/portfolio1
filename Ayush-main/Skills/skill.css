@@ -1,0 +1,323 @@
+/* --- Global Reset & Variables --- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+:root {
+  --bg-color: #080808;
+  --second-bg-color: #121212;
+  --main-purple: #8b5cf6;
+  --neon-green: #00ff88;
+  --neon-yellow: #f7df1e;
+  --neon-blue: #3b82f6;
+  --text-color: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bg-color);
+  /* Modern Mesh Gradient Background */
+  background-image:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(139, 92, 246, 0.15) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(0, 255, 136, 0.1) 0%,
+      transparent 40%
+    );
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+/* --- Master Header --- */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 9%;
+  background: rgba(8, 8, 8, 0.8);
+  backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.6rem 3rem;
+  z-index: 1000;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.logo {
+  font-size: 2.5rem;
+  color: var(--text-color);
+  font-weight: 700;
+}
+
+.logo i {
+  color: var(--main-purple);
+  margin-right: 1rem;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 1.2rem 0;
+}
+nav a {
+  font-size: 1.7rem;
+  color: var(--text-color);
+  margin-left: 4rem;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--main-purple);
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+
+/* --- Skills Section Layout --- */
+.skills-section {
+  padding: 14rem 9% 6rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-size: clamp(3.2rem, 5vw, 5rem);
+  text-align: center;
+  margin-bottom: 6rem;
+  font-weight: 700;
+}
+
+.heading span {
+  color: var(--main-purple);
+  text-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+/* --- Creative Bento Grid --- */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* auto-rows ensures no overlapping when content grows */
+  grid-auto-rows: minmax(200px, auto);
+  gap: 2.5rem;
+}
+
+/* --- Individual Skill Cards --- */
+.skill-card {
+  position: relative;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 3rem;
+  padding: 3rem;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: floating 5s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+/* Card Glow Effect on Hover */
+.skill-card:hover {
+  transform: translateY(-1.5rem) scale(1.02);
+  border-color: var(--clr);
+  box-shadow:
+    0 10px 40px -10px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(var(--clr), 0.2);
+}
+
+/* Different Grid Spans for Modern Look */
+.main-card {
+  grid-column: span 2;
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+}
+
+.tall-card {
+  grid-row: span 2;
+  justify-content: space-between;
+}
+
+/* --- Content Styling --- */
+.skill-icon i {
+  font-size: 6rem;
+  color: var(--clr);
+  filter: drop-shadow(0 0 10px var(--clr));
+  margin-bottom: 1.5rem;
+}
+
+.main-card .skill-icon i {
+  font-size: 8rem;
+  margin-bottom: 0;
+}
+
+.skill-card h3 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.skill-card p {
+  font-size: 1.4rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* --- Status & Progress Elements --- */
+.status-tag {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  font-size: 1rem;
+  color: var(--clr);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.mini-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  margin-top: 2rem;
+  overflow: hidden;
+}
+
+.mini-bar .fill {
+  height: 100%;
+  background: var(--clr);
+  border-radius: 10px;
+  box-shadow: 0 0 15px var(--clr);
+  transition: width 1s ease-in-out;
+}
+
+.percentage {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--clr);
+  opacity: 0.8;
+}
+
+/* --- Special Syncing Animation --- */
+.sync-card {
+  text-align: center;
+  align-items: center;
+  background: linear-gradient(
+    145deg,
+    rgba(139, 92, 246, 0.05),
+    rgba(0, 255, 136, 0.05)
+  );
+}
+
+.sync-icon i {
+  font-size: 4rem;
+  color: var(--neon-green);
+  margin-bottom: 2rem;
+  display: inline-block;
+}
+
+/* --- Keyframes --- */
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* --- Responsive Media Queries --- */
+@media (max-width: 1024px) {
+  header {
+    padding: 1.2rem 4%;
+    justify-content: center;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: center;
+  }
+
+  nav a {
+    margin: 0 1rem;
+  }
+
+  .skills-section {
+    padding: 13rem 5% 5rem;
+  }
+
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .main-card {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 1rem 3.5%;
+  }
+
+  nav a {
+    font-size: 1.3rem;
+    margin: 0 0.8rem;
+  }
+
+  .heading {
+    font-size: 3.2rem;
+  }
+
+  .skills-section {
+    padding: 12.5rem 6% 4rem;
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main-card,
+  .tall-card {
+    grid-column: span 1;
+    grid-row: span 1;
+    flex-direction: column;
+    text-align: center;
+    gap: 1.6rem;
+  }
+
+  .main-card .skill-icon i {
+    margin-bottom: 2rem;
+  }
+
+  .skill-card {
+    padding: 2.4rem;
+  }
+}
